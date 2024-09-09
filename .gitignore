@@ -103,6 +103,7 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
+env.py
 
 # mkdocs documentation
 /site
