@@ -3,6 +3,7 @@ import json
 import uuid
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
+from flask_cors import CORS
 from langchain_community.document_loaders import CSVLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import MyScale
@@ -10,12 +11,14 @@ from langchain_huggingface import HuggingFaceEmbeddings
 import anthropic
 
 app = Flask(__name__)
+CORS(app)
 
 # Configure your environment variables and settings here
 os.environ["MYSCALE_HOST"] = "msc-5131d230.us-east-1.aws.myscale.com"
 os.environ["MYSCALE_PORT"] = "443"
 os.environ["MYSCALE_USERNAME"] = "danielbrmz_org_default"
 os.environ["MYSCALE_PASSWORD"] = "passwd_ktandddcNhsCy4"
+os.environ["ANTHROPIC_API_KEY"] = "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"
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'csv', 'pdf'}
